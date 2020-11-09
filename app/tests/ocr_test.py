@@ -6,6 +6,7 @@ import cv2
 import pytesseract as pt
 import os 
 
+
 def strip_output(text):
     text = " ".join(text.split())
     text = text.replace("\n", " ")
