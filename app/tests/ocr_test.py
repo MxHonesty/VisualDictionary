@@ -41,6 +41,10 @@ class TestOCR(unittest.TestCase):
         text = pt.image_to_string(img)
         self.assertEqual(strip_output(text), "A testcase is created by subclassing unittest. testcase. The three individual tests are defined with methods whose names start with the letters test. This naming convention informs the test runner about which methods represent tests.")
         
+    def test_imagine7(self):
+        img = cv2.imread("test_images\\test7.jpg")
+        text = pt.image_to_string(img)
+        print(strip_output(text))
 
 if __name__ == "__main__":
     unittest.main()
