@@ -1,12 +1,13 @@
-import cv2
-import pytesseract as pt
+""" Modul pentru server. (TODO)"""
+from sanic import Sanic
+from sanic.response import json
 from domain.localizer import Localizer
 
-img = cv2.imread("tests\\test_images\\test7.jpg")
-loc = Localizer(img)
+app = Sanic()
 
-loc.set_min_confidence(50)
-print("Conf min = " + str(loc.get_min_confidence()))
-print("Conf medie = " + str(loc.get_medie_confidence()))
-print("==============================")
-print("Text = " + loc.get_text())
+@app.route("/upload", metohds=["POST"])
+async def test(request):
+    return json({"hello" : "world"})
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8001)
